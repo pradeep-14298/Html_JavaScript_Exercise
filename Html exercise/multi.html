@@ -1,0 +1,29 @@
+<!--'multi' stands multiplication table-->
+<title>
+pradeep(8)
+</title>
+
+Enter Multiplication number:
+<input
+type="number"
+id="nummno"
+placeholder="0"
+oninput="nummno_oninput();"
+/>
+<div id="dvop">
+wait...
+<div>
+<script>
+function nummno_oninput(){
+var mno=nummno.value;
+mno=parseInt(mno);
+mno=isNaN(mno)?o:mno;
+var i=0;
+var res="";
+for(i=1;i<21;i++){
+res+=i+'*'+mno+'='+(i*mno);
+res+='<br>';
+}
+dvop.innerHTML=res;
+}
+</script>

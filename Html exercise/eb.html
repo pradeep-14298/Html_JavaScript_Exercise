@@ -1,0 +1,359 @@
+<!--
+Example for Electricity Bill
+-->
+
+<table border='0' width="100%">
+
+<br>
+<tr>
+<td>
+Consumer ID
+<td colspan="3">
+<input
+type='number'
+id='numcid'
+placeholder='0'
+style="text-align:right;width:100%;"
+/>
+
+<tr>
+<td>
+Previous reading
+<td colspan="3">
+<input
+type='text'
+id='tbxcpr'
+placeholder='0.0'
+style="text-align:right;width:100%;"
+/> 
+
+
+<tr>
+<td>
+Current reading
+<td colspan="3">
+<input
+type='text'
+id='tbxccr'
+placeholder='0.0'
+style="text-align:right;width:100%;"
+/>
+
+<tr>
+<td>
+Consumer category
+<td colspan="3">
+<select id="tbxcc">
+<option value="agriculture">Agriculture
+<option value="domestic">Domsetic
+<option value="commerical" selected>Commerical
+</select>
+
+<tr>
+<td>
+Net reading
+<td colspan="3">
+<input
+type='text'
+id='tbxcnr'
+placeholder='0.0'
+style="text-align:right;width:100%;"
+/>
+
+<tr>
+<td style="color:red;">
+Units
+<td style="color:red;">
+Consume unit
+<td style="color:red;">
+Consume amount
+<td style="color:red;">
+Total amount
+
+<tr>
+<td>
+0to100
+<td>
+<input
+type='text'
+id='tbxcuu100'
+placeholder='0.0'
+style="text-align:right;width:100%;"
+readonly
+/>
+<td>
+<input
+type='text'
+id='tbxpcuu100'
+placeholder='0.0'
+style="text-align:right;width:100%;"
+readonly
+/>
+<td>
+<input
+type='text'
+id='tbxcuu100a'
+placeholder='0.0'
+style="text-align:right;width:100%;"
+readonly
+/>
+
+<tr>
+<td>
+100to200
+<td>
+<input
+type='text'
+id='tbxcuu200'
+placeholder='0.0'
+style="text-align:right;width:100%;"
+readonly
+/>
+<td>
+<input
+type='text'
+id='tbxpcuu200'
+placeholder='0.0'
+style="text-align:right;width:100%;"
+readonly
+/>
+<td>
+<input
+type='text'
+id='tbxcuu200a'
+placeholder='0.0'
+style="text-align:right;width:100%;"
+readonly
+/>
+
+<tr>
+<td>
+200to400
+<td>
+<input
+type='text'
+id='tbxcuu400'
+placeholder='0.0'
+style="text-align:right;width:100%;"
+readonly
+/>
+<td>
+<input
+type='text'
+id='tbxpcuu400'
+placeholder='0.0'
+style="text-align:right;width:100%;"
+readonly
+/>
+<td>
+<input
+type='text'
+id='tbxcuu400a'
+placeholder='0.0'
+style="text-align:right;width:100%;"
+readonly
+/>
+
+<tr>
+<td>
+400...
+<td>
+<input
+type='text'
+id='tbxcua400'
+placeholder='0.0'
+style="text-align:right;width:100%;"
+readonly
+/>
+<td>
+<input
+type='text'
+id='tbxpcua400'
+placeholder='0.0'
+style="text-align:right;width:100%;"
+readonly
+/>
+<td>
+<input
+type='text'
+id='tbxcua400a'
+placeholder='0.0'
+style="text-align:right;width:100%;"
+readonly
+/>
+
+<tr>
+<td>
+Meter charge
+<td colspan="3">
+<input
+type='text'
+id='tbxmc'
+placeholder='0.0'
+style="text-align:right;width:100%;"
+readonly
+/>
+<tr>
+<td>
+Tax for
+<td>
+<input
+type='text'
+id='tbxtaxcua400'
+placeholder='0.0'
+style="text-align:right;width:100%;"
+readonly
+/>
+<td>
+<input
+type='text'
+id='tbxtaxp'
+placeholder='0.0'
+style="text-align:right;width:100%;"
+readonly
+/>
+<td>
+<input
+type='text'
+id='tbxtaxa'
+placeholder='0.0'
+style="text-align:right;width:100%;"
+readonly
+/>
+
+<tr>
+<td>
+Net pay
+<td colspan="3">
+<input
+type='text'
+id='tbxnpay'
+placeholder='0.0'
+style="text-align:right;width:100%;"
+readonly
+/>
+
+<tr align="center">
+<td colspan="2">
+<input
+type="button"
+value="Cancel"
+onclick="location.href='eb.html';"
+/>
+<td colspan="2">
+<input
+type="button"
+value="Find"
+onclick="btnFind_onclick();"
+/>
+</table>
+
+
+<script>
+
+function btnFind_onclick(){
+
+var cpr=tbxcpr.value;
+cpr=parseFloat(cpr);
+
+var ccr=tbxccr.value;
+ccr=parseFloat(ccr);
+
+var cnr=0;
+
+cnr=ccr-cpr;
+
+tbxcnr.value=cnr;
+
+
+var cuu100=0,cuu200=0,cuu400=0,cua400=0;
+
+if(cnr>0 && cnr<=100){
+cuu100 = cnr;
+}
+
+if(cnr>100 && cnr<=200){
+cuu100=100;
+cuu200=cnr-100;
+}
+
+if(cnr>200 && cnr<=400){
+cuu100=100;
+cuu200=100;
+cuu400=cnr-200;
+}
+if(cnr>400){
+cuu100 =100;
+cuu200 = 100;
+cuu400 = 200;
+cua400 = cnr-400;
+}
+
+tbxcuu100.value=cuu100;
+tbxcuu200.value=cuu200;
+tbxcuu400.value=cuu400;
+tbxcua400.value=cua400;
+
+var pcuu100=0,pcuu200=0,pcuu400=0,pcua400=0;
+var mc=0,taxp=0;
+
+if(tbxcc.value=="agriculture")
+{
+pcuu100=0.25;
+pcuu200=0.5;
+pcuu400=1.5;
+pcua400=2.00;
+mc=12.5;
+taxp=2.5;
+}
+else if(tbxcc.value=="domestic")
+{
+pcuu100=0.5;
+pcuu200=1.00;
+pcuu400=3.0;
+pcua400=6.0;
+mc=25;
+taxp=5;
+}
+else if(tbxcc.value=="commerical")
+{
+pcuu100=1.00;
+pcuu200=2.00;
+pcuu400=6.0;
+pcua400=12.0;
+mc=200;
+taxp=7.5;
+
+}
+tbxpcuu100.value=pcuu100;
+tbxpcuu200.value=pcuu200;
+tbxpcuu400.value=pcuu400;
+tbxpcua400.value=pcua400;
+tbxmc.value=mc;
+tbxtaxp.value=taxp;
+
+var cuu100a=0,cuu200a=0,cuu400a=0,cua400a=0;
+
+cuu100a=cuu100*pcuu100;
+cuu200a=cuu200*pcuu200;
+cuu400a=cuu400*pcuu400;
+cua400a=cua400*pcua400;
+
+tbxcuu100a.value=cuu100a;
+tbxcuu200a.value=cuu200a;
+tbxcuu400a.value=cuu400a;
+tbxcua400a.value=cua400a;
+
+tbxtaxcua400.value=cua400a;
+var taxcua400=parseFloat(tbxtaxcua400.value);
+
+var taxa=0;
+taxa=taxcua400*(taxp/100);
+tbxtaxa.value=taxa;
+
+var npay=0;
+npay=cuu100a+cuu200a+cuu400a+cua400a+mc+taxa;
+tbxnpay.value=npay;
+
+}
+</script>

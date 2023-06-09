@@ -1,0 +1,16 @@
+<!--
+Exmaple for digitalclock,
+using  Date class instance methods
+(getHours,getMinutes,getSeconds)
+-->
+
+<script>
+
+const dt=new Date();
+var h=(dt.getHours()>9)?dt.getHours():("0"+dt.getHours());
+var m=(dt.getMinutes()>9)?dt.getMinutes():("0"+dt.getMinutes());
+var s=(dt.getSeconds()>9)?dt.getSeconds():("0"+dt.getSeconds());
+
+document.title= h+":"+m+":"+s;
+ 
+</script>

@@ -1,0 +1,83 @@
+<table border="1">
+<tr>
+<td>
+First number
+<td>
+<input
+type="text"
+id="tbxfno"
+placeholder="0"
+/>
+
+<tr>
+<td>
+Second number
+<td>
+<input
+type="text"
+id="tbxsno"
+placeholder="0"
+/>
+
+<tr>
+<td>
+Third number
+<td>
+<input
+type="text"
+id="tbxtno"
+placeholder="0"
+/>
+
+<tr>
+<td>
+Biggest number
+<td>
+<input
+type="text"
+id="tbxbno"
+placeholder="0"
+readonly="readonly"
+/>
+
+<tr>
+<td>
+<input
+type="button"
+value="cancel"
+onclick="location.href='bnum.html';"
+/>
+<td>
+<input
+type="button"
+value="Find"
+onclick="btnFind_onclick();"
+/>
+</table>
+
+<script>
+function btnFind_onclick(){
+
+var fno=0,sno=0,tno=0;
+var bno=0;
+
+
+fno=tbxfno.value;
+sno=tbxsno.value;
+tno=tbxtno.value;
+
+if((fno>sno) && (fno>tno))
+{
+ bno=fno;
+}else if(sno>tno)
+{
+bno=sno;
+}else 
+{
+bno=tno;
+}
+
+tbxbno.value=bno;
+
+}
+</script>

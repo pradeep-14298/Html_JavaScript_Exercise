@@ -1,0 +1,51 @@
+<!--Example for 'check box' component-->
+<!--In java script '/n' escape sequence make a new line-->
+<!--'hr' stands for horizontal-->
+<!-- In html <br> tag make a new line-->
+
+Drinks categories
+<hr color="blue"/>
+<br>
+<br>
+<input
+type="checkbox"
+id="chkbxhot"
+value="hot"
+oninput="chkbx_oninput();"
+/>hot
+<br>
+<input
+type="checkbox"
+id="chkbxcool"
+value="cool"
+oninput="chkbx_oninput();"
+/>cool
+<br>
+<input
+type="checkbox"
+id="chkbxsoft"
+value="soft"
+oninput="chkbx_oninput();"
+/>soft
+
+<br>
+<br>
+<div id='divop'>
+wait...
+</div>
+
+<script>
+function chkbx_oninput(){
+var res=' ';
+if(chkbxhot.checked){
+res +='hot<br>';
+}
+if(chkbxcool.checked){
+res +='cool<br>';
+}
+if(chkbxsoft.checked){
+res +='soft<br>';
+}
+divop.innerHTML=res;
+}
+</script>

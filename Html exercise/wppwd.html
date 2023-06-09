@@ -1,0 +1,56 @@
+<!-- Example for 'Password'GUI component-->
+
+<table>
+<tr>
+<td>
+Password:
+<td>
+<input 
+type="password"
+id="pwduser"
+/>
+
+<tr>
+<td>
+Confirm Password
+<td>
+<input
+type="password"
+id="cwduser"
+/>
+
+<tr>
+<td>
+<input
+type="button"
+value="Cancel"
+onclick="location.href='wppwd.html';"
+<td>
+<input
+type="button"
+value="Signin"
+onclick="btnSign_onclick();"
+/>
+</table>
+
+<script>
+function btnSign_onclick(){
+var pwdusr=pwduser.value;
+pwdusr=pwdusr.trim();
+if(pwduser.length==0){
+retrun;
+}
+var cwdusr=cwduser.value;
+cwdusr=cwdusr.trim();
+if(cwduser.lenth==0){
+retrun;
+}
+if(pwduser.value==cwduser.value)
+{
+location.href='eb.html';
+}
+else{
+alert('try again...');
+}
+}
+</script>

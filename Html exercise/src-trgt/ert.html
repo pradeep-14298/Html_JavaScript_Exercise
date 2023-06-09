@@ -1,0 +1,143 @@
+<!--
+Exmaple for how to transfer data from one webpage into another webpage using query
+string state mangement system
+-->
+
+
+<form action = "ert.html" method "get">
+
+<table border="1">
+
+<tr>
+<td>
+Roll no:
+<td>
+<input type="text"
+id="tbxrno"
+readonly
+/>
+
+
+<tr>
+<td>
+Student name:
+<td>
+<input type="text"
+id="tbxsname"
+readonly
+/>
+
+<tr>
+<td>
+Mark-1:
+<td>
+<input type="text"
+id="tbxm1"
+readonly
+/>
+
+<tr>
+<td>
+Mark-2:
+<td>
+<input type="text"
+id="tbxm2"
+readonly
+/>
+
+<tr>
+<td>
+Total:
+<td>
+<input type="text"
+id="tbxtot"
+readonly
+/>
+
+<tr>
+<td>
+Average:
+<td>
+<input type="text"
+id="tbxavg"
+readonly
+/>
+
+<tr>
+<td>
+Result:
+<td>
+<input type="text"
+id="tbxres"
+readonly
+/>
+
+<tr>
+<td>
+<input type="reset"
+value="Cancel"
+onclick="location.href='ert.html';"/>
+<td>
+<input type="submit"
+value="Home"/>
+
+</table>
+</form>
+
+<script>
+
+var total=0,avg=0,res=null;
+
+const params=new URLSearchParams(window.location.search); 
+
+if(params.has('tbxrno'))
+{
+rno=params.get('tbxrno');
+rno=parseInt(rno);
+rno=isNaN(rno)?0:rno;
+}
+
+if(params.has('tbxsname'))
+{
+sname=params.get('tbxsname');
+}
+
+if(params.has('tbxm1'))
+{
+m1=params.get('tbxm1');
+m1=parseInt(m1);
+m1=isNaN(m1)?0:m1;
+}
+
+if(params.has('tbxm2'))
+{
+m2=params.get('tbxm2');
+m2=parseInt(m2);
+m2=isNaN(m1)?0:m2;
+}
+
+total=m1+m2;
+tbxtot.value=total;
+
+avg=total/2;
+tbxavg.value=avg;
+ 
+result=(m1>34.4 && m2>34.4?"Pass":"Fail");
+
+
+tbxrno.value=rno;
+tbxm1.value=m1;
+tbxsname.value=sname;
+tbxm2.value=m2;
+tbxres.value=result;
+
+
+</script>
+
+
+
+
+
+
+
+

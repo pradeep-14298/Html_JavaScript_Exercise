@@ -1,0 +1,61 @@
+<!--
+Example for radio buttion with multiple groups
+plus
+example also for 'checked'attribute
+-->
+Morning Session
+<br>
+<input
+type='radio'
+id='rdomsp'
+name='rdom'
+value='Morning Session Present'
+oninput="rdo_oninput();"
+/>Present
+
+<br>
+<input
+type='radio'
+id='rdomsa'
+name='rdom'
+value='Morning Session Absent'
+checked
+oninput="rdo_oninput();"
+/>Absent
+
+<div id="divopa">
+Wait...
+</div>
+
+
+<hr size='1' color='yellow'>
+
+Afternoon Session
+<br>
+<input
+type='radio'
+id='rdoasp'
+name='rdoa'
+value='Afternoon Session Present'
+oninput="rdo_oninput();"
+/>Present
+<br>
+<input
+type='radio'
+id='rdoasa'
+name='rdoa'
+value='Afternoon Session Absent'
+checked
+oninput="rdo_onintput();"
+/>Absent
+
+<div id="divopb">
+Wait...
+</div>
+
+<script>
+function rdo_oninput(){
+divopa.innerHTML=rdomsp.checked?rdomsp.value:rdomsa.value;
+divopb.innerHTML=rdoasp.checked?rdoasp.value:rdoasa.value;
+}
+</script>

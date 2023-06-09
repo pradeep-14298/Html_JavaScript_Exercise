@@ -1,0 +1,24 @@
+<!--
+Exmaple for how to develop digitalclock,
+using  'SetInterval' method
+Data class instance methods(getHours,getMinutes,getSeconds)
+-->
+
+<h1 id="h1dc">
+wait...
+</h1>
+
+<script>
+
+setInterval(ugetTime,1000);
+
+function ugetTime()
+{
+const dt=new Date();
+var h=(dt.getHours()>9)?dt.getHours():("0"+dt.getHours());
+var m=(dt.getMinutes()>9)?dt.getMinutes():("0"+dt.getMinutes());
+var s=(dt.getSeconds()>9)?dt.getSeconds():("0"+dt.getSeconds());
+h1dc.innerHTML= h+":"+m+":"+s;
+
+} 
+</script>

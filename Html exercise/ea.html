@@ -1,0 +1,107 @@
+<!--
+'ea' stands for empolyee allowanes
+-->
+<table border="1">
+<tr>
+<td>
+ID
+<td>
+<input
+type="number"
+id="numeid"
+placeholder="0"
+/>
+<tr>
+<td>
+NAME
+<td>
+<input
+type="text"
+id="tbxename"
+placeholder="unknown"
+/>
+<tr>
+<td>
+SALARY
+<td>
+<input
+type="text"
+id="tbxsal"
+placeholder="0.0"
+oninput="tbxsal_oninput();"
+/>
+<tr>
+<td>
+HOUSE RENT ALLOWANCES
+<td>
+<input
+type="text"
+id="tbxhra"
+placeholder="0.0"
+readonly="readonly"
+/>
+<tr>
+<td>
+DEARNESS ALLOWANCES
+<td>
+<input
+type="text"
+id="tbxda"
+placeholder="0.0"
+readonly="readonly"
+/>
+<tr>
+<td>
+PROVIDENT FUND
+<td>
+<input
+type="text"
+id="tbxpf"
+placeholder="0.0"
+readonly="readonly"
+/>
+<tr>
+<td>
+GROSS PAY
+<td>
+<input
+type="text"
+id="tbxgpay"
+placeholder="0.0"
+readonly="readonly"
+/>
+<tr>
+<td>
+NET PAY
+<td>
+<input
+type="text"
+id="tbxnpay"
+placeholder="0.0"
+readonly="readonly"
+/>
+<tr align="center">
+<td colspan="2">
+<input
+type="button"
+value="cancel"
+onclick="location.href='ea.html';"
+/>
+</table>
+<script>
+function tbxsal_oninput(){
+var sal=tbxsal.value;
+sal=parseFloat(sal);
+sal=isNaN(sal)?0:sal;
+var hra=sal*(20/100);
+var da=sal*(15/100);
+var pf=sal*(35/100);
+var gpay=sal+hra+da;
+var npay=gpay-pf;
+tbxhra.value=hra;
+tbxda.value=da;
+tbxpf.value=pf;
+tbxgpay.value=gpay;
+tbxnpay.value=npay;
+}
+</script>

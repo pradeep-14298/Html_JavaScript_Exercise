@@ -1,0 +1,34 @@
+var eid=0,ename=null,esal=0;
+var tax10=0,tax20=0,tax30=0;
+var taxtot=0,npay=0;
+
+eid=prompt('Enter employee id:');
+ename=prompt('Enter employee name:');
+esal=prompt('Enter employee salary:');
+esal=parseFloat(esal);
+esal=isNaN(esal)?0:esal;
+
+if(esal>250000&&esal<=500000){
+tax10=(esal-250000)*10.0/100;
+}if(esal>500000&&esal<=1000000){
+tax10=25000;
+tax20=(esal-500000)*20.0/100;
+}if(esal>1000000){
+tax10=25000;
+tax20=100000;
+tax30=(esal-1000000)*30.0/100;
+}
+taxtot=tax10+tax20+tax30;
+npay=esal-taxtot;
+
+document.write('<br>employee id:',eid);
+document.write('<br>employee name:',ename);
+document.write('<br>employee salary:',esal);
+document.write('<br>tax 10%:',tax10);
+document.write('<br>tax 20%:',tax20);
+document.write('<br>tax 30%:',tax30);
+document.write('<br>total 10%:',taxtot);
+document.write('<br>netpay:',npay);
+
+
+

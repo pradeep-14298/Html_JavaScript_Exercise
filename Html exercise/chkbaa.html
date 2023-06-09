@@ -1,0 +1,22 @@
+<!--Example for 'check box' component-->
+
+Drinks categories
+<hr color="red"/>
+
+<!--'hr' stands for horizontal-->
+
+<input
+type="checkbox"
+id="chkbxHot"
+value="Hot"
+oninput="chkbx_onclick();"
+/>Hot
+
+<script>
+function chkbx_onclick(){
+if(chkbxHot.checked){
+alert('Like Hot drink');
+}else
+alert('Dislike Hot drink');
+}
+</script>

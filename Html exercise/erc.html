@@ -1,0 +1,31 @@
+<!--
+Exmaple for how to filter qurey string from URL path
+-->
+
+<script>
+
+var rno=0,fees=0.0;
+var sname=null;
+
+const params=new URLSearchParams(window.location.search)
+
+if(params.has('rno')){
+rno=params.get('rno');
+}
+
+if(params.has('sname')){
+sname=params.get('sname');
+}
+
+if(params.has('fees')){
+fees=params.get('fees');
+}
+
+document.write(rno,"=",typeof(rno),"<br>");
+document.write(sname,"=",typeof(sname),"<br>");
+document.write(fees,"=",typeof(fees),"<br>");
+
+</script>
+
+
+

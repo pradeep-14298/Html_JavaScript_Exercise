@@ -1,0 +1,51 @@
+<table border="1">
+<tr>
+<td>
+First number
+<td>
+<input
+type="text"
+id="tbxfno"
+
+placeholder="0"
+/>
+<tr>
+<td>
+Second number
+<td>
+<input
+type="text"
+id="tbxsno"
+
+placeholder="0"
+/>
+<tr>
+<td>
+Result
+<td>
+<input
+type="text"
+id="tbxres"
+placeholder="0"
+readonly="readonly"
+/>
+<tr>
+<td>
+<input
+type="button"
+value="cancel"
+onclick="location.href='addnum.html';"
+/>
+<td>
+<input
+type="button"
+value="find"
+onclick="btnfind_onclick();"
+/>
+</table>
+<script>
+function btnfind_onclick()
+{
+tbxres.value=tbxfno.value+tbxsno.value;
+}
+</script>

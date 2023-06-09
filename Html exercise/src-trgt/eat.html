@@ -1,0 +1,145 @@
+<!--
+Exmaple for how to transfer data from one webpage into another webpage using query
+string state mangement system
+-->
+
+
+<form action = "eas.html" method "get">
+<table border="1">
+<tr>
+<td>
+ID
+<td>
+<input
+type="text"
+id="tbxeid"
+readonly/>
+<tr>
+
+<td>
+NAME
+<td>
+<input
+type="text"
+id="tbxename"
+readonly/>
+
+<tr>
+<td>
+SALARY
+<td>
+<input
+type="text"
+id="tbxsal"
+readonly/>
+
+<tr>
+<td>
+HOUSE RENT ALLOWANCES
+<td>
+<input
+type="text"
+id="tbxhra"
+readonly/>
+
+<tr>
+<td>
+DEARNESS ALLOWANCES
+<td>
+<input
+type="text"
+id="tbxda"
+readonly/>
+
+<tr>
+<td>
+PROVIDENT FUND
+<td>
+<input
+type="text"
+id="tbxpf"
+placeholder="0.0"
+readonly/>
+
+<tr>
+<td>
+GROSS PAY
+<td>
+<input
+type="text"
+id="tbxgpay"
+readonly/>
+
+<tr>
+<td>
+NET PAY
+<td>
+<input
+type="text"
+id="tbxnpay"
+readonly/>
+<tr>
+<td>
+<input type="reset"
+value="Cancel"
+onclick="location.href='eat.html';"/>
+<td>
+<input type="submit"
+value="Home"/>
+
+</table>
+</form>
+
+
+<script>
+
+var eid=0,ename=null,sal=0;
+
+const params=new URLSearchParams(window.location.search); 
+
+
+if(params.has('tbxeid'))
+{
+eid=params.get('tbxeid');
+eid=parseInt(eid);
+eid=isNaN(eid)?0:eid;
+}
+
+if(params.has('tbxename'))
+{
+ename=params.get('tbxename');
+}
+
+if(params.has('tbxsal'))
+{
+sal=params.get('tbxsal');
+sal=parseFloat(sal);
+sal=isNaN(sal)?0:sal;
+}
+
+
+var hra=sal*(20/100);
+var da=sal*(15/100);
+var pf=sal*(35/100);
+var gpay=sal+hra+da;
+var npay=gpay-pf;
+
+tbxeid.value=eid;
+tbxename.value=ename;
+tbxsal.value=sal;
+tbxhra.value=hra;
+tbxda.value=da;
+tbxpf.value=pf;
+tbxgpay.value=gpay;
+tbxnpay.value=npay;
+
+
+</script>
+
+
+
+
+
+
+
+

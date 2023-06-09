@@ -1,0 +1,109 @@
+<!__'er' stands for Exam Result__>
+
+<table border="0">
+<tr>
+<td>
+Roll.no
+<td>
+<input
+type="number"
+id="numno"
+placeholder="0"
+/>
+<tr>
+<td>
+Name
+<td>
+<input
+type="text"
+id="tbxsname"
+placeholder="unknown"
+/>
+<tr>
+<td>
+Mark-1
+<td>
+<input
+type="text"
+id="tbxm1"
+placeholder="0.0"
+/>
+<tr>
+<td>
+Mark-2
+<td>
+<input
+type="text"
+id="tbxm2"
+placeholder="0.0"
+/>
+<tr>
+<td>
+Total
+<td>
+<input
+type="text"
+id="tbxtot"
+placeholder="0.0"
+readonly="readonly"
+/>
+<tr>
+<td>
+Average
+<td>
+<input
+type="text"
+id="tbxavg"
+placeholder="0.0"
+readonly="readonly"
+/>
+<tr>
+<td>
+Result
+<td>
+<input
+type="text"
+id="tbxres"
+placeholder="Fail"
+readonly="readonly"
+/>
+<tr>
+<td>
+<input
+type="button"
+value="cancel"
+onclick="location.href='er.html';"
+/>
+<td>
+<input
+type="button"
+value="Find"
+onclick="btnFind_onclick();"
+/>
+</table>
+<script>
+function btnFind_onclick(){
+var m1=tbxm1.value;
+var m2=tbxm2.value;
+m1=parseFloat(m1);
+m1=isNaN(m1)?0:m1;
+
+m2=parseFloat(m2);
+m2=isNaN(m2)?0:m2;
+
+var tot=m1+m2;
+tbxtot.value=tot;
+
+var avg=tot/2;
+tbxavg.value=avg;
+
+var result='Fail';
+
+if(m1>34.4 && m2>34.4){
+result='Pass'
+}else
+{ result='Fail';
+}
+tbxres.value=result;
+}
+</script>

@@ -1,0 +1,47 @@
+<!--
+Example for radio buttion
+-->
+<input
+type='radio'
+id='rdoHot'
+name='rdodrinks'
+value='Hot'
+oninput="rdo_oninput();"
+/>Hot
+
+<br>
+<input
+type='radio'
+id='rdoCool'
+name='rdodrinks'
+value='Cool'
+oninput="rdo_oninput();"
+/>Cool
+
+<br>
+<input
+type='radio'
+id='rdoSoft'
+name='rdodrinks'
+value='Soft'
+oninput="rdo_oninput();"
+/>Soft
+
+<div id="divop">
+wait...
+</div>
+
+<script>
+function rdo_oninput(){
+if(rdoHot.checked){
+document.title=rdoHot.value;
+divop.innerHTML=rdoHot.value;
+}if(rdoCool.checked){
+document.title=rdoCool.value;
+divop.innerHTML=rdoCool.value;
+}if(rdoSoft.checked){
+document.title=rdoSoft.value;
+divop.innerHTML=rdoSoft.value;
+}
+}
+</script>

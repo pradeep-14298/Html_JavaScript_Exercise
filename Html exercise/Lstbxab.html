@@ -1,0 +1,36 @@
+<!--
+Example for List box with multi selection
+-->
+<select
+id="Lstbx"
+size='4'
+multiple	
+oninput="Lstbx_oninput();"
+>
+<option value='Coffee'>Coffee
+<option value='Tea'>Tea
+<option value='Milk'>Milk
+<option value='7Up'>7Up
+<option value='Coke'>Coke
+<option value='Pepsi'>Pepsi
+<option value='Orange juice'>Orange juice
+<option value='Mango juice'>Mango juice
+<option value='Apple juice'>Apple juice
+</select>
+<br>
+<br>
+<div id="divop">
+wait...
+</div>
+<script>
+function Lstbx_oninput(){
+var res='';
+var i=0;
+for(i=0;i<Lstbx.length;i++){
+if(Lstbx.options[i].selected){
+res+=Lstbx.options[i].value+'<br>';
+}
+}
+divop.innerHTML=res;
+}
+</script>
